@@ -19,6 +19,9 @@ RUN apt install sudo -y
 RUN curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 RUN apt install -y nodejs
 
+RUN npm install gulp -g
+RUN npm install sass -g
+
 # configuration de php 
 RUN sed -i "s/short_open_tag\ \=\ Off/short_open_tag\ \=\ On/g" /etc/php/7.4/apache2/php.ini
 RUN sed -i "s/\;date\.timezone\ \=/date\.timezone\ \=\ UTC/" /etc/php/7.4/apache2/php.ini
