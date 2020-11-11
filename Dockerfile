@@ -10,8 +10,14 @@ ENV TZ=Europe/Paris
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt install php7.4 php7.4-common php7.4-mysql php7.4-curl php7.4-cgi php7.4-opcache php7.4-mbstring -y 
-RUN apt-get install apache2 libapache2-mod-php7.4 -y
-RUN apt-get install mariadb-common mariadb-server mariadb-client -y
+RUN apt install apache2 libapache2-mod-php7.4 -y
+RUN apt install mariadb-common mariadb-server mariadb-client -y
+RUN apt install vim -y
+RUN apt install git -y
+RUN apt install curl -y
+RUN apt install sudo -y
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+RUN apt install -y nodejs
 
 # configuration de php 
 RUN sed -i "s/short_open_tag\ \=\ Off/short_open_tag\ \=\ On/g" /etc/php/7.4/apache2/php.ini
