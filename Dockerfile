@@ -40,6 +40,9 @@ RUN php composer-setup.php
 RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 
+RUN apt install unzip -y
+RUN apt install php-xml php-zip -y
+
 COPY phpinfo.php /var/www/html/
 
 VOLUME /var/www/html
